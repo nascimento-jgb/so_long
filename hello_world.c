@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hello_world.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaonascimento <joaonascimento@student.    +#+  +:+       +#+        */
+/*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 10:05:11 by joaonascime       #+#    #+#             */
-/*   Updated: 2022/11/26 12:46:13 by joaonascime      ###   ########.fr       */
+/*   Updated: 2022/11/30 10:53:58 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

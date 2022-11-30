@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mod_loading.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaonascimento <joaonascimento@student.    +#+  +:+       +#+        */
+/*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 14:16:12 by joaonascime       #+#    #+#             */
-/*   Updated: 2022/11/27 14:37:05 by joaonascime      ###   ########.fr       */
+/*   Updated: 2022/11/30 10:53:59 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
