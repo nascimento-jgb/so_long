@@ -6,13 +6,13 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 09:30:26 by jonascim          #+#    #+#             */
-/*   Updated: 2022/11/30 16:11:52 by jonascim         ###   ########.fr       */
+/*   Updated: 2022/12/02 17:46:36 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void plot_image(t_param *param, void **image, char *filepath)
+void	plot_image(t_param *param, void **image, char *filepath)
 {
 	int	width;
 	int	height;

@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 14:12:03 by jonascim          #+#    #+#             */
-/*   Updated: 2022/11/30 16:11:55 by jonascim         ###   ########.fr       */
+/*   Updated: 2022/12/02 15:31:23 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ typedef struct	s_param
 
 //render game
 static void		init_base(t_param *game);
-
+static void		init_img(t_param *game);
+static void		init_item(t_param *game, void *element, int i, int j);
 int				init_map(t_param *game);
 void			render_game(t_param *game);
 
@@ -59,7 +60,7 @@ static t_param	*get_dimensions(t_param *param);
 void			check_line(char *line, size_t lenght, size_t row);
 
 //utils
-void plot_image	(t_param *param, void **image, char *filepath);
+void			plot_image(t_param *param, void **image, char *filepath);
 int				key_press(int keycode, t_param *param);
 void			all_free(t_param *param);
 #endif

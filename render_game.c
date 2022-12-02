@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 10:50:27 by jonascim          #+#    #+#             */
-/*   Updated: 2022/11/30 16:23:35 by jonascim         ###   ########.fr       */
+/*   Updated: 2022/12/02 15:31:19 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ static void	init_base(t_param *game)
 
 static void	init_img(t_param *game)
 {
-	plot_image(game, &game->player, "./textures/player.xpm");
-	plot_image(game, &game->wall, "./textures/wall.xpm");
+	plot_image(game, &game->player, "./textures/down.xpm");
+	plot_image(game, &game->wall, "./textures/soldiers.xpm");
 	plot_image(game, &game->collectable, "./textures/collectable.xpm");
 	plot_image(game, &game->ground, "./textures/ground.xpm");
 	plot_image(game, &game->exit, "./textures/exit.xpm");
