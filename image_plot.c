@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   image_plot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joaonascimento <joaonascimento@student.    +#+  +:+       +#+        */
+/*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 10:16:16 by joaonascime       #+#    #+#             */
-/*   Updated: 2022/11/27 12:03:26 by joaonascime      ###   ########.fr       */
+/*   Updated: 2022/12/04 12:59:49 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

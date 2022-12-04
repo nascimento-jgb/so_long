@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 09:30:26 by jonascim          #+#    #+#             */
-/*   Updated: 2022/12/02 17:46:36 by jonascim         ###   ########.fr       */
+/*   Updated: 2022/12/04 17:31:34 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,41 +20,51 @@ void	plot_image(t_param *param, void **image, char *filepath)
 	if(!*image)
 	{
 		all_free(param);
-		exit(0); // message about bad image generation
+		exit_message("ERROR: Image initialization failed!", 0);
 	}
+}
+
+int	all_free_exit(t_param *param)
+{
+	all_free(param);
+	exit(0);
 }
 
 void	all_free(t_param *param)
 {
 	int	aux;
 
-	aux = 0;
+	aux = -1;
 	mlx_destroy_image(param->mlx_ptr, param->player);
 	mlx_destroy_image(param->mlx_ptr, param->wall);
 	mlx_destroy_image(param->mlx_ptr, param->collectable);
 	mlx_destroy_image(param->mlx_ptr, param->ground);
 	mlx_destroy_image(param->mlx_ptr, param->exit);
 	mlx_destroy_window(param->mlx_ptr, param->win_ptr);
-	while (param->map[aux++])
+	while (param->map[++aux])
 		free(param->map[aux]);
 	free(param->map);
-	//include msg about winning or failing the game
+	if (param->end_of_game)
+		printf("Congratulations! Your final score is: %d\n", ++param->steps);
 }
 
 int	key_press(int keycode, t_param *param)
 {
-	if (keycode == 13 && move_up(param))
-		printf("%d/n", ++param->steps); //use ft_printf
-	if (keycode == 1 && move_down(param))
-		printf("%d/n", ++param->steps); //use ft_printf
-	if (keycode == 0 && move_left(param))
-		printf("%d/n", ++param->steps); //use ft_printf
-	if (keycode == 2 && move_right(param))
-		printf("%d/n", ++param->steps); //use ft_printf
+	if (keycode == 13 && moving_up(param))
+		printf("%d\n", ++param->steps); //use ft_printf
+	if (keycode == 1 && moving_down(param))
+		printf("%d\n", ++param->steps); //use ft_printf
+	if (keycode == 0 && moving_left(param))
+		printf("%d\n", ++param->steps); //use ft_printf
+	if (keycode == 2 && moving_right(param))
+		printf("%d\n", ++param->steps); //use ft_printf
 	if (keycode == 53)
-	{
-		all_free(param);
-		exit(0);
-	} //exit and free all img
+		all_free_exit(param);//exit and free all img
 	return (0);
+}
+
+void	exit_message(char *msg, int i)
+{
+	ft_putendl_fd(msg, 2);
+	exit(i);
 }

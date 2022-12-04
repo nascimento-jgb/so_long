@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:25:29 by jonascim          #+#    #+#             */
-/*   Updated: 2022/11/30 16:11:53 by jonascim         ###   ########.fr       */
+/*   Updated: 2022/12/04 17:09:32 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void	check_line(char *line, size_t lenght, size_t row)
 {
 	int i;
 
-	i = 0;
+	i = -1;
 	if (lenght != row)
-		exit(0); // exit error about different sizes betwen lines
-	while (line[i++])
+		exit_message("ERROR: Different sizes in-between lines.", 0);
+	while (line[++i])
 	{
-		if (line[i] != 0 && line[i] != 1 && line[i] != 0 && line[i] != 'C' && line[i] != 'E' && line[i] != 'P' && line[i] != '\n')
-			exit(0); //error message about invalid character
+		if (line[i] != '0' && line[i] != '1' && line[i] != 'C' && line[i] != 'E' && line[i] != 'P' && line[i] != '\n')
+			exit_message("ERROR: Invalid character present in the map!", 0); //error message about invalid character
 	}
 }
 
@@ -35,7 +35,7 @@ static t_param	*get_dimensions(t_param *param)
 	return (param);
 }
 
-static char get_data(int fd)
+static char *get_data(int fd)
 {
 	char	*line;
 	char	*info;
@@ -44,7 +44,7 @@ static char get_data(int fd)
 
 	line = get_next_line(fd);
 	if (line == NULL)
-		exit(0); // exit message about empty file
+		exit_message("ERROR: Empty file.", 0);
 	lenght = ft_strlen(line);
 	info = ft_strdup(line);
 	while (line)
@@ -53,9 +53,9 @@ static char get_data(int fd)
 		if (line)
 		{
 			row = ft_strlen(line);
-			check_line (line, lenght, row);
+			check_line(line, lenght, row);
 			info = ft_strjoin(info, line);
-			free (line);
+			free(line);
 		}
 	}
 	return (info);
@@ -70,7 +70,7 @@ void	open_map(char *argv, t_param *param)
 	file = ft_strjoin("./maps/", argv);
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		exit(0); // exit message about failed file descriptor
+		exit_message("ERROR: Fail to read file descriptor!", 0);
 	data = get_data(fd);
 	param->map = ft_split(data, '\n');
 	close(fd);

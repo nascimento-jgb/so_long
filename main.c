@@ -6,18 +6,19 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 13:48:51 by jonascim          #+#    #+#             */
-/*   Updated: 2022/11/30 16:11:54 by jonascim         ###   ########.fr       */
+/*   Updated: 2022/12/04 17:09:31 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+//-I /usr/X11/include -g -L /usr/X11/lib -l mlx -framework OpenGL -framework AppKit
 
 static int	check_file(char *argv)
 {
 	int	i;
 	while (argv[i] && argv[i] != '.')
 		i++;
-	if (!ft_strncmp(argv + i, ".ber", 4))
+	if (ft_strncmp(argv + i, ".ber", 4) != 0)
 		return (0);
 	return (1);
 }
@@ -41,6 +42,8 @@ static t_param	*init_param(t_param *param)
 	param->e = 0;
 	param->p = 0;
 	param->steps = 0;
+	param->end_of_game = 0;
+	return(param);
 }
 
 int	main(int argc, char **argv)
@@ -48,9 +51,9 @@ int	main(int argc, char **argv)
 	t_param *param;
 
 	if (argc != 2)
-		exit(0); // print exit error
-	if (!check(argv[1]))
-		exit(0); // print exit error
+		exit_message("ERROR: Wrong ammount of arguments!", 0);
+	if (!check_file(argv[1]))
+		exit_message("ERROR: File is not .ber", 0);
 	param = (t_param *)malloc(sizeof(t_param));
 	param = init_param(param); //initializing parameters
 	open_map(argv[1], param);
