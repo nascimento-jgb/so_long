@@ -6,23 +6,24 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:25:29 by jonascim          #+#    #+#             */
-/*   Updated: 2022/12/04 17:09:32 by jonascim         ###   ########.fr       */
+/*   Updated: 2022/12/05 15:14:11 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 void	check_line(char *line, size_t lenght, size_t row)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	if (lenght != row)
 		exit_message("ERROR: Different sizes in-between lines.", 0);
 	while (line[++i])
 	{
-		if (line[i] != '0' && line[i] != '1' && line[i] != 'C' && line[i] != 'E' && line[i] != 'P' && line[i] != '\n')
-			exit_message("ERROR: Invalid character present in the map!", 0); //error message about invalid character
+		if (line[i] != '0' && line[i] != '1' && line[i] != 'C'
+			&& line[i] != 'E' && line[i] != 'P' && line[i] != '\n')
+			exit_message("ERROR: Invalid character present in the map!", 0);
 	}
 }
 
@@ -35,7 +36,7 @@ static t_param	*get_dimensions(t_param *param)
 	return (param);
 }
 
-static char *get_data(int fd)
+static char	*get_data(int fd)
 {
 	char	*line;
 	char	*info;
@@ -76,5 +77,5 @@ void	open_map(char *argv, t_param *param)
 	close(fd);
 	free(data);
 	param = get_dimensions(param);
-	check_map(param); //checking the map in another file
+	check_map(param);
 }

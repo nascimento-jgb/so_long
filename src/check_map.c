@@ -6,11 +6,11 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 10:50:45 by jonascim          #+#    #+#             */
-/*   Updated: 2022/12/04 17:23:11 by jonascim         ###   ########.fr       */
+/*   Updated: 2022/12/05 15:09:25 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 static void	check_borders(t_param *param)
 {
@@ -25,8 +25,9 @@ static void	check_borders(t_param *param)
 	aux = -1;
 	while (++aux < param->height)
 	{
-		if (param->map[aux][0] != '1' || param->map[aux][param->width -1] != '1')
-			exit_message("ERROR: Invalid border!",0);
+		if (param->map[aux][0] != '1' || param->map[aux][param->width -1]
+				!= '1')
+			exit_message("ERROR: Invalid border!", 0);
 	}
 	aux = -1;
 	while (param->map[param->height][++aux])

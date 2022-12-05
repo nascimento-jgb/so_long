@@ -6,16 +6,17 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 13:48:51 by jonascim          #+#    #+#             */
-/*   Updated: 2022/12/04 17:09:31 by jonascim         ###   ########.fr       */
+/*   Updated: 2022/12/05 15:11:46 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-//-I /usr/X11/include -g -L /usr/X11/lib -l mlx -framework OpenGL -framework AppKit
+#include "../includes/so_long.h"
 
 static int	check_file(char *argv)
 {
 	int	i;
+
+	i = 0;
 	while (argv[i] && argv[i] != '.')
 		i++;
 	if (ft_strncmp(argv + i, ".ber", 4) != 0)
@@ -43,20 +44,20 @@ static t_param	*init_param(t_param *param)
 	param->p = 0;
 	param->steps = 0;
 	param->end_of_game = 0;
-	return(param);
+	return (param);
 }
 
 int	main(int argc, char **argv)
 {
-	t_param *param;
+	t_param	*param;
 
 	if (argc != 2)
 		exit_message("ERROR: Wrong ammount of arguments!", 0);
 	if (!check_file(argv[1]))
 		exit_message("ERROR: File is not .ber", 0);
 	param = (t_param *)malloc(sizeof(t_param));
-	param = init_param(param); //initializing parameters
+	param = init_param(param);
 	open_map(argv[1], param);
-	render_game(param); //rendering function in anotehr file
-	return(0);
+	render_game(param);
+	return (0);
 }

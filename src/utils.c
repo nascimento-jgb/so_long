@@ -6,18 +6,19 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 09:30:26 by jonascim          #+#    #+#             */
-/*   Updated: 2022/12/04 17:31:34 by jonascim         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:16:31 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 void	plot_image(t_param *param, void **image, char *filepath)
 {
 	int	width;
 	int	height;
+
 	*image = mlx_xpm_file_to_image(param->mlx_ptr, filepath, &width, &height);
-	if(!*image)
+	if (!*image)
 	{
 		all_free(param);
 		exit_message("ERROR: Image initialization failed!", 0);
@@ -50,16 +51,16 @@ void	all_free(t_param *param)
 
 int	key_press(int keycode, t_param *param)
 {
-	if (keycode == 13 && moving_up(param))
-		printf("%d\n", ++param->steps); //use ft_printf
-	if (keycode == 1 && moving_down(param))
-		printf("%d\n", ++param->steps); //use ft_printf
-	if (keycode == 0 && moving_left(param))
-		printf("%d\n", ++param->steps); //use ft_printf
-	if (keycode == 2 && moving_right(param))
-		printf("%d\n", ++param->steps); //use ft_printf
+	if ((keycode == 13 || keycode == 126) && moving_up(param))
+		ft_printf("%d\n", ++param->steps);
+	if ((keycode == 1 || keycode == 125) && moving_down(param))
+		ft_printf("%d\n", ++param->steps);
+	if ((keycode == 0 || keycode == 123) && moving_left(param))
+		ft_printf("%d\n", ++param->steps);
+	if ((keycode == 2 || keycode == 124) && moving_right(param))
+		ft_printf("%d\n", ++param->steps);
 	if (keycode == 53)
-		all_free_exit(param);//exit and free all img
+		all_free_exit(param);
 	return (0);
 }
 

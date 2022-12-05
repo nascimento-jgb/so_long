@@ -6,13 +6,13 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:36:22 by jonascim          #+#    #+#             */
-/*   Updated: 2022/12/04 17:30:49 by jonascim         ###   ########.fr       */
+/*   Updated: 2022/12/05 15:12:26 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
-static void update_image(t_param *game, char c)
+static void	update_image(t_param *game, char c)
 {
 	mlx_clear_window(game->mlx_ptr, game->win_ptr);
 	mlx_destroy_image(game->mlx_ptr, game->player);
@@ -42,7 +42,7 @@ int	moving_up(t_param *game)
 		game->map[y][x] = 'P';
 		game->map[y + 1][x] = '0';
 		init_map(game);
-		return(1);
+		return (1);
 	}
 	if (game->map[y][x] == 'E' && game->c == 0)
 	{
@@ -52,7 +52,7 @@ int	moving_up(t_param *game)
 	}
 	game->player_y++;
 	init_map(game);
-	return(0);
+	return (0);
 }
 
 int	moving_down(t_param *game)
@@ -71,7 +71,7 @@ int	moving_down(t_param *game)
 		game->map[y][x] = 'P';
 		game->map[y - 1][x] = '0';
 		init_map(game);
-		return(1);
+		return (1);
 	}
 	if (game->map[y][x] == 'E' && game->c == 0)
 	{
@@ -81,7 +81,7 @@ int	moving_down(t_param *game)
 	}
 	game->player_y--;
 	init_map(game);
-	return(0);
+	return (0);
 }
 
 int	moving_left(t_param *game)
@@ -100,7 +100,7 @@ int	moving_left(t_param *game)
 		game->map[y][x] = 'P';
 		game->map[y][x + 1] = '0';
 		init_map(game);
-		return(1);
+		return (1);
 	}
 	if (game->map[y][x] == 'E' && game->c == 0)
 	{
@@ -110,7 +110,7 @@ int	moving_left(t_param *game)
 	}
 	game->player_x++;
 	init_map(game);
-	return(0);
+	return (0);
 }
 
 int	moving_right(t_param *game)
@@ -129,7 +129,7 @@ int	moving_right(t_param *game)
 		game->map[y][x] = 'P';
 		game->map[y][x - 1] = '0';
 		init_map(game);
-		return(1);
+		return (1);
 	}
 	if (game->map[y][x] == 'E' && game->c == 0)
 	{
@@ -139,5 +139,5 @@ int	moving_right(t_param *game)
 	}
 	game->player_x--;
 	init_map(game);
-	return(0);
+	return (0);
 }
