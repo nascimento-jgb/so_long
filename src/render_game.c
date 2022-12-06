@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 10:50:27 by jonascim          #+#    #+#             */
-/*   Updated: 2022/12/05 16:38:57 by jonascim         ###   ########.fr       */
+/*   Updated: 2022/12/06 14:54:57 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ static void	init_base(t_param *game)
 
 static void	init_image(t_param *game)
 {
-	plot_image(game, &game->player, "./sprites/down.xpm");
-	plot_image(game, &game->wall, "./sprites/wall.xpm");
-	plot_image(game, &game->collectable, "./sprites/collectable.xpm");
-	plot_image(game, &game->ground, "./sprites/ground.xpm");
-	plot_image(game, &game->exit, "./sprites/chest.xpm");
+	plot_image(game, &game->player, "./textures/down.xpm");
+	plot_image(game, &game->wall, "./textures/wall.xpm");
+	plot_image(game, &game->collectable, "./textures/collectable.xpm");
+	plot_image(game, &game->ground, "./textures/ground.xpm");
+	plot_image(game, &game->exit, "./textures/chest.xpm");
 }
 
 static void	init_item(t_param *game, void *element, int i, int j)

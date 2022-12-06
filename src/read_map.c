@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:25:29 by jonascim          #+#    #+#             */
-/*   Updated: 2022/12/05 15:14:11 by jonascim         ###   ########.fr       */
+/*   Updated: 2022/12/06 14:36:18 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static char	*get_data(int fd)
 {
 	char	*line;
 	char	*info;
+	char	*temp;
 	size_t	lenght;
 	size_t	row;
 
@@ -48,6 +49,7 @@ static char	*get_data(int fd)
 		exit_message("ERROR: Empty file.", 0);
 	lenght = ft_strlen(line);
 	info = ft_strdup(line);
+	temp = line;
 	while (line)
 	{
 		line = get_next_line(fd);
@@ -55,10 +57,11 @@ static char	*get_data(int fd)
 		{
 			row = ft_strlen(line);
 			check_line(line, lenght, row);
-			info = ft_strjoin(info, line);
+			info = ft_join_n_free(info, line);
 			free(line);
 		}
 	}
+	free(temp);
 	return (info);
 }
 
@@ -76,6 +79,7 @@ void	open_map(char *argv, t_param *param)
 	param->map = ft_split(data, '\n');
 	close(fd);
 	free(data);
+	free(file);
 	param = get_dimensions(param);
 	check_map(param);
 }

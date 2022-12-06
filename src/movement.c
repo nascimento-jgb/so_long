@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 16:36:22 by jonascim          #+#    #+#             */
-/*   Updated: 2022/12/05 15:12:26 by jonascim         ###   ########.fr       */
+/*   Updated: 2022/12/06 14:55:20 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ static void	update_image(t_param *game, char c)
 	mlx_clear_window(game->mlx_ptr, game->win_ptr);
 	mlx_destroy_image(game->mlx_ptr, game->player);
 	if (c == 'w')
-		plot_image(game, &game->player, "./sprites/up.xpm");
+		plot_image(game, &game->player, "./textures/up.xpm");
 	if (c == 's')
-		plot_image(game, &game->player, "./sprites/down.xpm");
+		plot_image(game, &game->player, "./textures/down.xpm");
 	if (c == 'a')
-		plot_image(game, &game->player, "./sprites/left.xpm");
+		plot_image(game, &game->player, "./textures/left.xpm");
 	if (c == 'd')
-		plot_image(game, &game->player, "./sprites/right.xpm");
+		plot_image(game, &game->player, "./textures/right.xpm");
 }
 
 int	moving_up(t_param *game)

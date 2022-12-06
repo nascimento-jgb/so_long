@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:10:50 by jonascim          #+#    #+#             */
-/*   Updated: 2022/12/05 15:39:38 by jonascim         ###   ########.fr       */
+/*   Updated: 2022/12/06 14:25:34 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <unistd.h>
 
 char	*get_next_line(int fd);
+char	*ft_join_n_free(char *stash, char *rbuff);
 char	*ft_strjoin2(char const *s1, char const *s2);
 char	*ft_strchr2(const char *s, int c);
 

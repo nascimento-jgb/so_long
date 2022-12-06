@@ -6,7 +6,7 @@
 #    By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 20:00:04 by jonascim          #+#    #+#              #
-#    Updated: 2022/12/05 18:03:53 by jonascim         ###   ########.fr        #
+#    Updated: 2022/12/06 14:55:31 by jonascim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ INCLUDE		= includes
 LIBFT		= libft
 MLX			= minilibx
 SRC_DIR		= src/
-CC			= gcc
+CC			= cc
 CFLAGS		= -Wall -Werror -Wextra -g -I
 MLXFLAGS	= -framework OpenGL -framework AppKit
 RM			= rm -f
