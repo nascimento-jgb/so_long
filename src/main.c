@@ -6,7 +6,7 @@
 /*   By: jonascim <jonascim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 13:48:51 by jonascim          #+#    #+#             */
-/*   Updated: 2022/12/05 15:11:46 by jonascim         ###   ########.fr       */
+/*   Updated: 2022/12/07 14:31:16 by jonascim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,13 @@ int	main(int argc, char **argv)
 		exit_message("ERROR: Wrong ammount of arguments!", 0);
 	if (!check_file(argv[1]))
 		exit_message("ERROR: File is not .ber", 0);
-	param = (t_param *)malloc(sizeof(t_param));
+	param = ft_calloc(1, sizeof(t_param));
+	param = init_param(param);
+	if (!param)
+	{
+		free(param);
+		return (0);
+	}
 	param = init_param(param);
 	open_map(argv[1], param);
 	render_game(param);
